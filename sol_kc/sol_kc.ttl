@@ -1,0 +1,84 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#>.
+@prefix sol_kc:  <https://cornelka.github.io/sol_kc#>.
+
+# ─────────────────────────────────────────────
+#  Classes
+# ─────────────────────────────────────────────
+
+sol_kc:Person a rdfs:Class ;
+    rdfs:label   "Person"@en ;
+    rdfs:comment "A human being identified by name, contact details, and social connections."@en .
+
+sol_kc:Dog a rdfs:Class ;
+    rdfs:label   "Dog"@en ;
+    rdfs:comment "A domestic dog (Canis lupus familiaris) kept as a pet."@en .
+
+# ─────────────────────────────────────────────
+#  Properties of Person
+# ─────────────────────────────────────────────
+
+sol_kc:givenName a rdf:Property ;
+    rdfs:label   "given name"@en ;
+    rdfs:comment "The first (given) name of a person."@en ;
+    rdfs:domain  sol_kc:Person ;
+    rdfs:range   xsd:string .
+
+sol_kc:familyName a rdf:Property ;
+    rdfs:label   "family name"@en ;
+    rdfs:comment "The surname (family name) of a person."@en ;
+    rdfs:domain  sol_kc:Person ;
+    rdfs:range   xsd:string .
+
+sol_kc:birthday a rdf:Property ;
+    rdfs:label   "birthday"@en ;
+    rdfs:comment "The date of birth of a person."@en ;
+    rdfs:domain  sol_kc:Person ;
+    rdfs:range   xsd:date .
+
+sol_kc:mbox a rdf:Property ;
+    rdfs:label   "mailbox"@en ;
+    rdfs:comment "A personal e-mail address (mailbox IRI) belonging to a person."@en ;
+    rdfs:domain  sol_kc:Person ;
+    rdfs:range   rdfs:Resource .
+
+sol_kc:interest a rdf:Property ;
+    rdfs:label   "interest"@en ;
+    rdfs:comment "A resource (topic, website, or activity) that a person is interested in."@en ;
+    rdfs:domain  sol_kc:Person ;
+    rdfs:range   rdfs:Resource .
+
+sol_kc:knows a rdf:Property ;
+    rdfs:label   "knows"@en ;
+    rdfs:comment "Indicates that this person has acquaintance with another person."@en ;
+    rdfs:domain  sol_kc:Person ;
+    rdfs:range   sol_kc:Person .
+
+# ─────────────────────────────────────────────
+#  Properties of Dog
+# ─────────────────────────────────────────────
+
+sol_kc:name a rdf:Property ;
+    rdfs:label   "name"@en ;
+    rdfs:comment "The given name of a dog."@en ;
+    rdfs:domain  sol_kc:Dog ;
+    rdfs:range   xsd:string .
+
+sol_kc:breed a rdf:Property ;
+    rdfs:label   "breed"@en ;
+    rdfs:comment "The breed of a dog (e.g. Golden Retriever)."@en ;
+    rdfs:domain  sol_kc:Dog ;
+    rdfs:range   xsd:string .
+
+sol_kc:color a rdf:Property ;
+    rdfs:label   "color"@en ;
+    rdfs:comment "The predominant coat color of a dog."@en ;
+    rdfs:domain  sol_kc:Dog ;
+    rdfs:range   xsd:string .
+
+sol_kc:owner a rdf:Property ;
+    rdfs:label   "owner"@en ;
+    rdfs:comment "The person who owns and is responsible for a dog."@en ;
+    rdfs:domain  sol_kc:Dog ;
+    rdfs:range   sol_kc:Person .
