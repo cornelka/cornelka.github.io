@@ -1,25 +1,25 @@
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#>.
 @prefix solkc: <https://cornelka.github.io/sol_kc#>.
-@prefix ex:    <http://example.org/>.
+@prefix data:  <https://cornelka.github.io/sol_kc/data#>.
 
-ex:KarelCornelis a solkc:Person;
+data:KarelCornelis a solkc:Person;
   solkc:givenName  "Karel Jan Hendrik"@en;
   solkc:familyName "Cornelis"@en;
   solkc:birthday   "2000-02-27"^^xsd:date;
   solkc:mbox       <mailto:karel.cornelis@soluco.be>;
   solkc:interest   <https://www.handbal.be/>;
-  solkc:knows      ex:WardDeMuynck, ex:JelleNelis.
+  solkc:knows      data:WardDeMuynck, data:JelleNelis.
 
-ex:Pepper a solkc:Dog;
+data:Pepper a solkc:Dog;
   solkc:name   "Pepper"@en;
   solkc:breed  "Golden Retriever"@en;
   solkc:color  "Brown"@en;
-  solkc:owner  ex:KarelCornelis.
+  solkc:owner  data:KarelCornelis.
 
-ex:WardDeMuynck a solkc:Person;
+data:WardDeMuynck a solkc:Person;
   solkc:givenName  "Ward"@en;
   solkc:familyName "De Munck"@en.
 
-ex:JelleNelis a solkc:Person;
+data:JelleNelis a solkc:Person;
   solkc:givenName  "Jelle"@en;
   solkc:familyName "Nelis"@en.
