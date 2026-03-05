@@ -8,8 +8,8 @@ data:karelcornelis a solkc:Person;
   solkc:birthday "2000-02-27"^^xsd:date;
   solkc:mbox <mailto:karel.cornelis@soluco.be>;
   solkc:interest <https://www.handbal.be/>;
-  solkc:knows data:WardDeMuynck,
-    data:JelleNelis,
+  solkc:knows <https://vucis.github.io/data.ttl#me>,
+    <https://lander6.github.io/knowledge-graph-assignment/data.ttl#Lander>,
     <https://pietercolpaert.be/#me>.
 
 data:pepper a solkc:Dog;
@@ -17,12 +17,4 @@ data:pepper a solkc:Dog;
   solkc:breed "Golden Retriever"@en;
   solkc:color "Brown"@en;
   solkc:owner data:KarelCornelis.
-
-data:WardDeMuynck a solkc:Person;
-  solkc:givenName "Ward"@en;
-  solkc:familyName "De Munck"@en.
-
-data:JelleNelis a solkc:Person;
-  solkc:givenName "Jelle"@en;
-  solkc:familyName "Nelis"@en.
 
