@@ -2,7 +2,7 @@
 @prefix solkc: <https://cornelka.github.io/sol_kc#>.
 @prefix data:  <https://cornelka.github.io/sol_kc/data#>.
 
-data:KarelCornelis a solkc:Person;
+data:karelcornelis a solkc:Person;
   solkc:givenName  "Karel Jan Hendrik"@en;
   solkc:familyName "Cornelis"@en;
   solkc:birthday   "2000-02-27"^^xsd:date;
@@ -10,7 +10,7 @@ data:KarelCornelis a solkc:Person;
   solkc:interest   <https://www.handbal.be/>;
   solkc:knows      data:WardDeMuynck, data:JelleNelis.
 
-data:Pepper a solkc:Dog;
+data:pepper a solkc:Dog;
   solkc:name   "Pepper"@en;
   solkc:breed  "Golden Retriever"@en;
   solkc:color  "Brown"@en;
