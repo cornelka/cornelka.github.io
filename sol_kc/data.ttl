@@ -1,25 +1,28 @@
-@prefix xsd:   <http://www.w3.org/2001/XMLSchema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix solkc: <https://cornelka.github.io/sol_kc#>.
-@prefix data:  <https://cornelka.github.io/sol_kc/data#>.
+@prefix data: <https://cornelka.github.io/sol_kc/data#>.
 
 data:karelcornelis a solkc:Person;
-  solkc:givenName  "Karel Jan Hendrik"@en;
+  solkc:givenName "Karel Jan Hendrik"@en;
   solkc:familyName "Cornelis"@en;
-  solkc:birthday   "2000-02-27"^^xsd:date;
-  solkc:mbox       <mailto:karel.cornelis@soluco.be>;
-  solkc:interest   <https://www.handbal.be/>;
-  solkc:knows      data:WardDeMuynck, data:JelleNelis.
+  solkc:birthday "2000-02-27"^^xsd:date;
+  solkc:mbox <mailto:karel.cornelis@soluco.be>;
+  solkc:interest <https://www.handbal.be/>;
+  solkc:knows data:WardDeMuynck,
+    data:JelleNelis,
+    <https://pietercolpaert.be/#me>.
 
 data:pepper a solkc:Dog;
-  solkc:name   "Pepper"@en;
-  solkc:breed  "Golden Retriever"@en;
-  solkc:color  "Brown"@en;
-  solkc:owner  data:KarelCornelis.
+  solkc:name "Pepper"@en;
+  solkc:breed "Golden Retriever"@en;
+  solkc:color "Brown"@en;
+  solkc:owner data:KarelCornelis.
 
 data:WardDeMuynck a solkc:Person;
-  solkc:givenName  "Ward"@en;
+  solkc:givenName "Ward"@en;
   solkc:familyName "De Munck"@en.
 
 data:JelleNelis a solkc:Person;
-  solkc:givenName  "Jelle"@en;
+  solkc:givenName "Jelle"@en;
   solkc:familyName "Nelis"@en.
+
