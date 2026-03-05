@@ -1,18 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>sol_kc Data</title>
+  <title>sol_kc Vocabulary</title>
   <style>
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: system-ui, sans-serif;
@@ -26,336 +19,319 @@
       color: #e0e0e0;
       padding: 2rem 3rem;
     }
+    header h1 { font-size: 1.8rem; font-weight: 700; }
+    header p  { margin-top: .4rem; font-size: .95rem; color: #a0aec0; }
+    header a  { color: #63b3ed; text-decoration: none; }
+    header a:hover { text-decoration: underline; }
 
-    header h1 {
-      font-size: 1.8rem;
-      font-weight: 700;
-    }
-
-    header p {
-      margin-top: .4rem;
-      font-size: .95rem;
-      color: #a0aec0;
-    }
-
-    header a {
-      color: #63b3ed;
-      text-decoration: none;
-    }
-
-    header a:hover {
-      text-decoration: underline;
-    }
-
-    nav {
-      background: #1a2a4a;
-      padding: .6rem 3rem;
-      font-size: .85rem;
-    }
-
-    nav a {
-      color: #90cdf4;
-      text-decoration: none;
-      margin-right: 1.5rem;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    main {
-      max-width: 960px;
-      margin: 2.5rem auto;
-      padding: 0 1.5rem 4rem;
-    }
+    main { max-width: 960px; margin: 2.5rem auto; padding: 0 1.5rem 4rem; }
 
     .download {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      background: #2b6cb0;
-      color: #fff;
-      padding: .5rem 1.1rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: .9rem;
-      margin-bottom: 2.5rem;
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: #2b6cb0; color: #fff;
+      padding: .5rem 1.1rem; border-radius: 6px;
+      text-decoration: none; font-size: .9rem; margin-bottom: 2.5rem;
     }
-
-    .download:hover {
-      background: #2c5282;
-    }
+    .download:hover { background: #2c5282; }
 
     h2 {
-      font-size: 1.3rem;
-      font-weight: 700;
+      font-size: 1.3rem; font-weight: 700;
       border-left: 4px solid #2b6cb0;
       padding-left: .75rem;
       margin: 2.5rem 0 1rem;
     }
 
+    /* ── card ── */
     .card {
       background: #fff;
       border: 1px solid #e2e8f0;
       border-radius: 8px;
       margin-bottom: 1.25rem;
       overflow: hidden;
-      scroll-margin-top: 1.5rem;
     }
-
     .card-header {
-      display: flex;
-      align-items: center;
-      gap: .75rem;
+      display: flex; align-items: center; gap: .75rem;
       padding: .9rem 1.25rem;
       background: #edf2fb;
       border-bottom: 1px solid #e2e8f0;
     }
-
     .badge {
-      font-size: .7rem;
-      font-weight: 700;
-      text-transform: uppercase;
+      font-size: .7rem; font-weight: 700; text-transform: uppercase;
       letter-spacing: .05em;
-      padding: .2rem .55rem;
-      border-radius: 4px;
+      padding: .2rem .55rem; border-radius: 4px;
     }
+    .badge-class    { background: #bee3f8; color: #1a365d; }
+    .badge-property { background: #c6f6d5; color: #1c4532; }
 
-    .badge-person {
-      background: #bee3f8;
-      color: #1a365d;
-    }
+    .card-header .term { font-weight: 700; font-size: 1rem; }
+    .card-header .label { font-size: .85rem; color: #555; margin-left: auto; font-style: italic; }
 
-    .badge-dog {
-      background: #fefcbf;
-      color: #744210;
-    }
+    .card-body { padding: 1rem 1.25rem; }
+    .card-body p { font-size: .9rem; color: #444; margin-bottom: .75rem; }
 
-    .card-header .term {
-      font-weight: 700;
-      font-size: 1rem;
-    }
+    table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+    th { text-align: left; padding: .4rem .75rem; background: #f7fafc; color: #555; font-weight: 600; width: 30%; }
+    td { padding: .4rem .75rem; border-top: 1px solid #eee; }
+    td a, td code { color: #2b6cb0; font-family: monospace; text-decoration: none; }
+    td a:hover { text-decoration: underline; }
 
-    .card-header .label {
-      font-size: .85rem;
-      color: #555;
-      margin-left: auto;
-      font-style: italic;
+    .ns-box {
+      background: #1a202c; color: #a0aec0;
+      border-radius: 8px; padding: 1rem 1.5rem;
+      font-family: monospace; font-size: .82rem;
+      margin-bottom: 2rem;
+      overflow-x: auto;
     }
-
-    .card-body {
-      padding: 1rem 1.25rem;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: .85rem;
-    }
-
-    th {
-      text-align: left;
-      padding: .4rem .75rem;
-      background: #f7fafc;
-      color: #555;
-      font-weight: 600;
-      width: 30%;
-    }
-
-    td {
-      padding: .4rem .75rem;
-      border-top: 1px solid #eee;
-    }
-
-    td a,
-    td code {
-      color: #2b6cb0;
-      font-family: monospace;
-      text-decoration: none;
-    }
-
-    td a:hover {
-      text-decoration: underline;
-    }
+    .ns-box span.kw  { color: #68d391; }
+    .ns-box span.uri { color: #63b3ed; }
 
     footer {
-      text-align: center;
-      font-size: .8rem;
-      color: #999;
+      text-align: center; font-size: .8rem; color: #999;
       padding: 1.5rem;
       border-top: 1px solid #e2e8f0;
     }
   </style>
 </head>
-
 <body>
 
-  <header>
-    <h1>sol_kc Data</h1>
-    <p>Instances described using the <a href="https://cornelka.github.io/sol_kc">sol_kc vocabulary</a></p>
-  </header>
+<header>
+  <h1>sol_kc Vocabulary</h1>
+  <p>Namespace: <a href="https://soluco.be/ugent_kg/sol_kc#">https://soluco.be/ugent_kg/sol_kc#</a></p>
+</header>
 
-  <nav>
-    <a href="https://cornelka.github.io/sol_kc">Vocabulary</a>
-    <a href="https://cornelka.github.io/sol_kc/data.ttl">data.ttl (Turtle)</a>
-  </nav>
+<main>
 
-  <main>
+  <a class="download" href="sol_kc.ttl" download>
+    &#x2B07; Download sol_kc.ttl
+  </a>
 
-    <a class="download" href="https://cornelka.github.io/sol_kc/data.ttl" download>
-      &#x2B07; Download data.ttl
-    </a>
+  <!-- Namespaces -->
+  <h2>Namespaces</h2>
+  <div class="ns-box">
+    <span class="kw">@prefix</span> rdf:    <span class="uri">&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</span> .<br>
+    <span class="kw">@prefix</span> rdfs:   <span class="uri">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span> .<br>
+    <span class="kw">@prefix</span> xsd:    <span class="uri">&lt;http://www.w3.org/2001/XMLSchema#&gt;</span> .<br>
+    <span class="kw">@prefix</span> sol_kc: <span class="uri">&lt;https://soluco.be/ugent_kg/sol_kc#&gt;</span> .
+  </div>
 
-    <!-- Persons -->
-    <h2>Persons</h2>
+  <!-- Classes -->
+  <h2>Classes</h2>
 
-    <div class="card" id="karelcornelis">
-      <div class="card-header">
-        <span class="badge badge-person">Person</span>
-        <span class="term">data:KarelCornelis</span>
-        <span class="label">Karel Jan Hendrik Cornelis</span>
-      </div>
-      <div class="card-body">
-        <table>
-          <tr>
-            <th>IRI</th>
-            <td><code>https://cornelka.github.io/sol_kc/data#KarelCornelis</code></td>
-          </tr>
-          <tr>
-            <th>Type</th>
-            <td><a href="https://cornelka.github.io/sol_kc#Person">solkc:Person</a></td>
-          </tr>
-          <tr>
-            <th>Given name</th>
-            <td>Karel Jan Hendrik</td>
-          </tr>
-          <tr>
-            <th>Family name</th>
-            <td>Cornelis</td>
-          </tr>
-          <tr>
-            <th>Birthday</th>
-            <td>2000-02-27</td>
-          </tr>
-          <tr>
-            <th>Mailbox</th>
-            <td><a href="mailto:karel.cornelis@soluco.be">karel.cornelis@soluco.be</a></td>
-          </tr>
-          <tr>
-            <th>Interest</th>
-            <td><a href="https://www.handbal.be/">https://www.handbal.be/</a></td>
-          </tr>
-          <tr>
-            <th>Knows</th>
-            <td>
-              <a href="#WardDeMuynck">data:WardDeMuynck</a>,
-              <a href="#JelleNelis">data:JelleNelis</a>
-            </td>
-          </tr>
-        </table>
-      </div>
+  <div class="card" id="Person">
+    <div class="card-header">
+      <span class="badge badge-class">Class</span>
+      <span class="term">sol_kc:Person</span>
+      <span class="label">Person</span>
     </div>
-
-    <div class="card" id="WardDeMuynck">
-      <div class="card-header">
-        <span class="badge badge-person">Person</span>
-        <span class="term">data:WardDeMuynck</span>
-        <span class="label">Ward De Munck</span>
-      </div>
-      <div class="card-body">
-        <table>
-          <tr>
-            <th>IRI</th>
-            <td><code>https://cornelka.github.io/sol_kc/data#WardDeMuynck</code></td>
-          </tr>
-          <tr>
-            <th>Type</th>
-            <td><a href="https://cornelka.github.io/sol_kc#Person">solkc:Person</a></td>
-          </tr>
-          <tr>
-            <th>Given name</th>
-            <td>Ward</td>
-          </tr>
-          <tr>
-            <th>Family name</th>
-            <td>De Munck</td>
-          </tr>
-        </table>
-      </div>
+    <div class="card-body">
+      <p>A human being identified by name, contact details, and social connections.</p>
+      <table>
+        <tr><th>IRI</th><td><a href="https://soluco.be/ugent_kg/sol_kc#Person">sol_kc:Person</a></td></tr>
+        <tr><th>Type</th><td><code>rdfs:Class</code></td></tr>
+        <tr><th>Label</th><td>Person</td></tr>
+        <tr><th>Properties</th><td>
+          <a href="#givenName">givenName</a>,
+          <a href="#familyName">familyName</a>,
+          <a href="#birthday">birthday</a>,
+          <a href="#mbox">mbox</a>,
+          <a href="#interest">interest</a>,
+          <a href="#knows">knows</a>
+        </td></tr>
+      </table>
     </div>
+  </div>
 
-    <div class="card" id="JelleNelis">
-      <div class="card-header">
-        <span class="badge badge-person">Person</span>
-        <span class="term">data:JelleNelis</span>
-        <span class="label">Jelle Nelis</span>
-      </div>
-      <div class="card-body">
-        <table>
-          <tr>
-            <th>IRI</th>
-            <td><code>https://cornelka.github.io/sol_kc/data#JelleNelis</code></td>
-          </tr>
-          <tr>
-            <th>Type</th>
-            <td><a href="https://cornelka.github.io/sol_kc#Person">solkc:Person</a></td>
-          </tr>
-          <tr>
-            <th>Given name</th>
-            <td>Jelle</td>
-          </tr>
-          <tr>
-            <th>Family name</th>
-            <td>Nelis</td>
-          </tr>
-        </table>
-      </div>
+  <div class="card" id="Dog">
+    <div class="card-header">
+      <span class="badge badge-class">Class</span>
+      <span class="term">sol_kc:Dog</span>
+      <span class="label">Dog</span>
     </div>
-
-    <!-- Dogs -->
-    <h2>Dogs</h2>
-
-    <div class="card" id="pepper">
-      <div class="card-header">
-        <span class="badge badge-dog">Dog</span>
-        <span class="term">data:Pepper</span>
-        <span class="label">Pepper</span>
-      </div>
-      <div class="card-body">
-        <table>
-          <tr>
-            <th>IRI</th>
-            <td><code>https://cornelka.github.io/sol_kc/data#Pepper</code></td>
-          </tr>
-          <tr>
-            <th>Type</th>
-            <td><a href="https://cornelka.github.io/sol_kc#Dog">solkc:Dog</a></td>
-          </tr>
-          <tr>
-            <th>Name</th>
-            <td>Pepper</td>
-          </tr>
-          <tr>
-            <th>Breed</th>
-            <td>Golden Retriever</td>
-          </tr>
-          <tr>
-            <th>Color</th>
-            <td>Brown</td>
-          </tr>
-          <tr>
-            <th>Owner</th>
-            <td><a href="#karelcornelis">data:karelcornelis</a></td>
-          </tr>
-        </table>
-      </div>
+    <div class="card-body">
+      <p>A domestic dog (<em>Canis lupus familiaris</em>) kept as a pet.</p>
+      <table>
+        <tr><th>IRI</th><td><a href="https://soluco.be/ugent_kg/sol_kc#Dog">sol_kc:Dog</a></td></tr>
+        <tr><th>Type</th><td><code>rdfs:Class</code></td></tr>
+        <tr><th>Label</th><td>Dog</td></tr>
+        <tr><th>Properties</th><td>
+          <a href="#name">name</a>,
+          <a href="#breed">breed</a>,
+          <a href="#color">color</a>,
+          <a href="#owner">owner</a>
+        </td></tr>
+      </table>
     </div>
+  </div>
 
-  </main>
+  <!-- Properties – Person -->
+  <h2>Properties of sol_kc:Person</h2>
 
-  <footer>sol_kc Data &mdash; described using the <a href="https://cornelka.github.io/sol_kc">sol_kc vocabulary</a>
-  </footer>
+  <div class="card" id="givenName">
+    <div class="card-header">
+      <span class="badge badge-property">Property</span>
+      <span class="term">sol_kc:givenName</span>
+      <span class="label">given name</span>
+    </div>
+    <div class="card-body">
+      <p>The first (given) name of a person.</p>
+      <table>
+        <tr><th>IRI</th><td><a href="https://soluco.be/ugent_kg/sol_kc#givenName">sol_kc:givenName</a></td></tr>
+        <tr><th>Domain</th><td><a href="#Person">sol_kc:Person</a></td></tr>
+        <tr><th>Range</th><td><code>xsd:string</code></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" id="familyName">
+    <div class="card-header">
+      <span class="badge badge-property">Property</span>
+      <span class="term">sol_kc:familyName</span>
+      <span class="label">family name</span>
+    </div>
+    <div class="card-body">
+      <p>The surname (family name) of a person.</p>
+      <table>
+        <tr><th>IRI</th><td><a href="https://soluco.be/ugent_kg/sol_kc#familyName">sol_kc:familyName</a></td></tr>
+        <tr><th>Domain</th><td><a href="#Person">sol_kc:Person</a></td></tr>
+        <tr><th>Range</th><td><code>xsd:string</code></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" id="birthday">
+    <div class="card-header">
+      <span class="badge badge-property">Property</span>
+      <span class="term">sol_kc:birthday</span>
+      <span class="label">birthday</span>
+    </div>
+    <div class="card-body">
+      <p>The date of birth of a person.</p>
+      <table>
+        <tr><th>IRI</th><td><a href="https://soluco.be/ugent_kg/sol_kc#birthday">sol_kc:birthday</a></td></tr>
+        <tr><th>Domain</th><td><a href="#Person">sol_kc:Person</a></td></tr>
+        <tr><th>Range</th><td><code>xsd:date</code></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" id="mbox">
+    <div class="card-header">
+      <span class="badge badge-property">Property</span>
+      <span class="term">sol_kc:mbox</span>
+      <span class="label">mailbox</span>
+    </div>
+    <div class="card-body">
+      <p>A personal e-mail address (mailbox IRI) belonging to a person.</p>
+      <table>
+        <tr><th>IRI</th><td><a href="https://soluco.be/ugent_kg/sol_kc#mbox">sol_kc:mbox</a></td></tr>
+        <tr><th>Domain</th><td><a href="#Person">sol_kc:Person</a></td></tr>
+        <tr><th>Range</th><td><code>rdfs:Resource</code></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" id="interest">
+    <div class="card-header">
+      <span class="badge badge-property">Property</span>
+      <span class="term">sol_kc:interest</span>
+      <span class="label">interest</span>
+    </div>
+    <div class="card-body">
+      <p>A resource (topic, website, or activity) that a person is interested in.</p>
+      <table>
+        <tr><th>IRI</th><td><a href="https://soluco.be/ugent_kg/sol_kc#interest">sol_kc:interest</a></td></tr>
+        <tr><th>Domain</th><td><a href="#Person">sol_kc:Person</a></td></tr>
+        <tr><th>Range</th><td><code>rdfs:Resource</code></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" id="knows">
+    <div class="card-header">
+      <span class="badge badge-property">Property</span>
+      <span class="term">sol_kc:knows</span>
+      <span class="label">knows</span>
+    </div>
+    <div class="card-body">
+      <p>Indicates that this person has acquaintance with another person.</p>
+      <table>
+        <tr><th>IRI</th><td><a href="https://soluco.be/ugent_kg/sol_kc#knows">sol_kc:knows</a></td></tr>
+        <tr><th>Domain</th><td><a href="#Person">sol_kc:Person</a></td></tr>
+        <tr><th>Range</th><td><a href="#Person">sol_kc:Person</a></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Properties – Dog -->
+  <h2>Properties of sol_kc:Dog</h2>
+
+  <div class="card" id="name">
+    <div class="card-header">
+      <span class="badge badge-property">Property</span>
+      <span class="term">sol_kc:name</span>
+      <span class="label">name</span>
+    </div>
+    <div class="card-body">
+      <p>The given name of a dog.</p>
+      <table>
+        <tr><th>IRI</th><td><a href="https://soluco.be/ugent_kg/sol_kc#name">sol_kc:name</a></td></tr>
+        <tr><th>Domain</th><td><a href="#Dog">sol_kc:Dog</a></td></tr>
+        <tr><th>Range</th><td><code>xsd:string</code></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" id="breed">
+    <div class="card-header">
+      <span class="badge badge-property">Property</span>
+      <span class="term">sol_kc:breed</span>
+      <span class="label">breed</span>
+    </div>
+    <div class="card-body">
+      <p>The breed of a dog (e.g. Golden Retriever).</p>
+      <table>
+        <tr><th>IRI</th><td><a href="https://soluco.be/ugent_kg/sol_kc#breed">sol_kc:breed</a></td></tr>
+        <tr><th>Domain</th><td><a href="#Dog">sol_kc:Dog</a></td></tr>
+        <tr><th>Range</th><td><code>xsd:string</code></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" id="color">
+    <div class="card-header">
+      <span class="badge badge-property">Property</span>
+      <span class="term">sol_kc:color</span>
+      <span class="label">color</span>
+    </div>
+    <div class="card-body">
+      <p>The predominant coat color of a dog.</p>
+      <table>
+        <tr><th>IRI</th><td><a href="https://soluco.be/ugent_kg/sol_kc#color">sol_kc:color</a></td></tr>
+        <tr><th>Domain</th><td><a href="#Dog">sol_kc:Dog</a></td></tr>
+        <tr><th>Range</th><td><code>xsd:string</code></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" id="owner">
+    <div class="card-header">
+      <span class="badge badge-property">Property</span>
+      <span class="term">sol_kc:owner</span>
+      <span class="label">owner</span>
+    </div>
+    <div class="card-body">
+      <p>The person who owns and is responsible for a dog.</p>
+      <table>
+        <tr><th>IRI</th><td><a href="https://soluco.be/ugent_kg/sol_kc#owner">sol_kc:owner</a></td></tr>
+        <tr><th>Domain</th><td><a href="#Dog">sol_kc:Dog</a></td></tr>
+        <tr><th>Range</th><td><a href="#Person">sol_kc:Person</a></td></tr>
+      </table>
+    </div>
+  </div>
+
+</main>
+
+<footer>sol_kc Vocabulary &mdash; generated 2026-03-04</footer>
 
 </body>
-
 </html>
