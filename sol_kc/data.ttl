@@ -1,10 +1,11 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
-@prefix solkc: <https://cornelka.github.io/sol_kc#>.
-@prefix data: <https://cornelka.github.io/sol_kc/data#>.
+@prefix solkc: <https://cornelka.github.io/sol_kc.ttl>.
+@prefix data: <https://cornelka.github.io/sol_kc/data.ttl>.
 
 data:karelcornelis a solkc:Person;
   solkc:givenName "Karel Jan Hendrik"@en;
   solkc:familyName "Cornelis"@en;
+  solkc:name "Karel Cornelis"@en;
   solkc:birthday "2000-02-27"^^xsd:date;
   solkc:mbox <mailto:karel.cornelis@soluco.be>;
   solkc:interest <https://www.handbal.be/>;
@@ -13,28 +14,34 @@ data:karelcornelis a solkc:Person;
     <https://pietercolpaert.be/#me>.
 
 data:alberteinstein a solkc:Person;
-  solkc:givenName "Albert"@en;
-  solkc:familyName "Einstein"@en.
+  solkc:name "Albert Einstein"@en.
 
 data:arthursasse a solkc:Person;
-  solkc:givenName "Arthur"@en;
-  solkc:familyName "Sasse"@en.
-
+  solkc:name "Arthur Sasse"@en.
 
 data:pepper a solkc:Dog;
-  solkc:name "Pepper"@en;
+  solkc:dogname "Pepper"@en;
   solkc:breed "Golden Retriever"@en;
   solkc:color "Brown"@en;
-  solkc:owner data:KarelCornelis.
+  solkc:owner data:karelcornelis.
 
 data:meandmydog a solkc:Photo;
   solkc:title "dogselfie";
-  solkc:createdby "https://cornelka.github.io/sol_kc/data.ttl#karelcornelis";
+  solkc:takenby "https://cornelka.github.io/sol_kc/data.ttl#karelcornelis";
   solkc:depicts "https://cornelka.github.io/sol_kc/data.ttl#karelcornelis",
                 "https://cornelka.github.io/sol_kc/data.ttl#pepper";
   solkc:location "Lokeren";
   solkc:description "Me and my young dog some years ago.";
-  solkc:url "https://cornelka.github.io/sol_kc/photo/dogselfie.jpg" ;
+  solkc:url "https://cornelka.github.io/photo/dogselfie.jpg" ;
+  solkc:publicationdate "2026-03-18" .
+
+data:meandalbert a solkc:GenPhoto;
+  solkc:title "gpt stuff";
+  solkc:createdby "chatGPT";
+  solkc:depicts "https://cornelka.github.io/sol_kc/data.ttl#karelcornelis",
+                "https://cornelka.github.io/sol_kc/data.ttl#alberteinstein";
+  solkc:description "Smiles of wisdom and friendship";
+  solkc:url "https://cornelka.github.io/photo/me_and_albert.png" ;
   solkc:publicationdate "2026-03-18" .
 
 data:generatedjoe a solkc:GenPhoto;
@@ -46,7 +53,7 @@ data:generatedjoe a solkc:GenPhoto;
 
 data:sillyeinstein a solkc:Photo;
   solkc:title "silly einstein";
-  solkc:createdby "https://cornelka.github.io/sol_kc/data.ttl#arthursasse";
+  solkc:takenby "https://cornelka.github.io/sol_kc/data.ttl#arthursasse";
   solkc:depicts "https://cornelka.github.io/sol_kc/data.ttl#alberteinstein";
   solkc:location "New York";
   solkc:description "nutty professor";
