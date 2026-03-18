@@ -77,8 +77,8 @@ sol_kc:knows a rdf:Property ;
 sol_kc:name a rdf:Property ;
     rdfs:label          "full name"@en ;
     rdfs:comment        "The full name of a person or dog."@en ;
-    rdfs:subPropertyOf  foaf:name ;
-    rdfs:range          xsd:string .
+    rdfs:range          xsd:string ;
+    rdfs:subPropertyOf  foaf:name .
 
 
 # ─────────────────────────────────────────────
