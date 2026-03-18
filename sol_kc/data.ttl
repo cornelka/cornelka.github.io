@@ -1,6 +1,6 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
-@prefix solkc: <https://cornelka.github.io/sol_kc.ttl>.
-@prefix data: <https://cornelka.github.io/sol_kc/data.ttl>.
+@prefix solkc: <https://cornelka.github.io/sol_kc.ttl#>.
+@prefix data: <https://cornelka.github.io/sol_kc/data.ttl#>.
 
 data:karelcornelis a solkc:Person;
   solkc:givenName "Karel Jan Hendrik"@en;
@@ -27,21 +27,21 @@ data:pepper a solkc:Dog;
 
 data:meandmydog a solkc:Photo;
   solkc:title "dogselfie";
-  solkc:takenby "https://cornelka.github.io/sol_kc/data.ttl#karelcornelis";
-  solkc:depicts "https://cornelka.github.io/sol_kc/data.ttl#karelcornelis",
-                "https://cornelka.github.io/sol_kc/data.ttl#pepper";
+  solkc:takenby data:karelcornelis;
+  solkc:depicts data:karelcornelis,
+                data:pepper;
   solkc:location "Lokeren";
   solkc:description "Me and my young dog some years ago.";
-  solkc:url "https://cornelka.github.io/photo/dogselfie.jpg" ;
+  solkc:url <https://cornelka.github.io/photo/dogselfie.jpg> ;
   solkc:publicationdate "2026-03-18" .
 
 data:meandalbert a solkc:GenPhoto;
   solkc:title "gpt stuff";
   solkc:createdby "chatGPT";
-  solkc:depicts "https://cornelka.github.io/sol_kc/data.ttl#karelcornelis",
-                "https://cornelka.github.io/sol_kc/data.ttl#alberteinstein";
+  solkc:depicts data:karelcornelis,
+                data:alberteinstein;
   solkc:description "Smiles of wisdom and friendship";
-  solkc:url "https://cornelka.github.io/photo/me_and_albert.png" ;
+  solkc:url <https://cornelka.github.io/photo/me_and_albert.png> ;
   solkc:publicationdate "2026-03-18" .
 
 data:generatedjoe a solkc:GenPhoto;
@@ -49,14 +49,14 @@ data:generatedjoe a solkc:GenPhoto;
   solkc:createdby "An internet application";
   solkc:location "the cloud";
   solkc:depicts "A non-existing person";
-  solkc:url "https://thispersondoesnotexist.com" .
+  solkc:url <https://thispersondoesnotexist.com> .
 
 data:sillyeinstein a solkc:Photo;
   solkc:title "silly einstein";
-  solkc:takenby "https://cornelka.github.io/sol_kc/data.ttl#arthursasse";
-  solkc:depicts "https://cornelka.github.io/sol_kc/data.ttl#alberteinstein";
+  solkc:takenby data:arthursasse;
+  solkc:depicts data:alberteinstein;
   solkc:location "New York";
   solkc:description "nutty professor";
-  solkc:url "https://cdn-blog.superprof.com/blog_au/wp-content/uploads/2024/10/silly-einstein-pic-1200x1419.jpg.webp";
+  solkc:url <https://cdn-blog.superprof.com/blog_au/wp-content/uploads/2024/10/silly-einstein-pic-1200x1419.jpg.webp> ;
   solkc:publicationdate "1951-03-15".
 
