@@ -12,9 +12,44 @@ data:karelcornelis a solkc:Person;
     <https://lander6.github.io/knowledge-graph-assignment/data.ttl#Lander>,
     <https://pietercolpaert.be/#me>.
 
+data:alberteinstein a solkc:Person;
+  solkc:givenName "Albert"@en;
+  solkc:familyName "Einstein"@en.
+
+data:arthursasse a solkc:Person;
+  solkc:givenName "Arthur"@en;
+  solkc:familyName "Sasse"@en.
+
+
 data:pepper a solkc:Dog;
   solkc:name "Pepper"@en;
   solkc:breed "Golden Retriever"@en;
   solkc:color "Brown"@en;
   solkc:owner data:KarelCornelis.
+
+data:meandmydog a solkc:Photo;
+  solkc:title "dogselfie";
+  solkc:createdby "https://cornelka.github.io/sol_kc/data.ttl#karelcornelis";
+  solkc:depicts "https://cornelka.github.io/sol_kc/data.ttl#karelcornelis",
+                "https://cornelka.github.io/sol_kc/data.ttl#pepper";
+  solkc:location "Lokeren";
+  solkc:description "Me and my young dog some years ago.";
+  solkc:url "https://cornelka.github.io/sol_kc/photo/dogselfie.jpg" ;
+  solkc:publicationdate "2026-03-18" .
+
+data:generatedjoe a solkc:GenPhoto;
+  solkc:title "a generated face";
+  solkc:createdby "An internet application";
+  solkc:location "the cloud";
+  solkc:depicts "A non-existing person";
+  solkc:url "https://thispersondoesnotexist.com" .
+
+data:sillyeinstein a solkc:Photo;
+  solkc:title "silly einstein";
+  solkc:createdby "https://cornelka.github.io/sol_kc/data.ttl#arthursasse";
+  solkc:depicts "https://cornelka.github.io/sol_kc/data.ttl#alberteinstein";
+  solkc:location "New York";
+  solkc:description "nutty professor";
+  solkc:url "https://cdn-blog.superprof.com/blog_au/wp-content/uploads/2024/10/silly-einstein-pic-1200x1419.jpg.webp";
+  solkc:publicationdate "1951-03-15".
 
